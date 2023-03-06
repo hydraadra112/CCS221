@@ -4,7 +4,8 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from scipy.spatial import Delaunay
 import tensorflow as tf
-
+import streamlit as st
+st.title("Activity4\nGroup6\n3DRotation")
 # 3D Rotation by Carado, Molet & Pendon
 
 

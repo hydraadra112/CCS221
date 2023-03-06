@@ -1,5 +1,6 @@
+import streamlit as st
 import matplotlib.pyplot as plt
-
+st.title("Activity1\nGroup6\nBresenhamsLine")
 def DDALine (x1, y1, x2, y2, color):
     dx = abs(x1 - x2)
     dy = abs(y1 - y2)

@@ -1,5 +1,6 @@
+import streamlit as st
 import matplotlib.pyplot as plt
-
+st.title("Activity2\nGroup6\nDDALine_Midpoint")
 def DDALine (x1, y1, x2, y2):
     dx = abs(x1 - x2)
     dy = abs(y1 - y2)

@@ -1,5 +1,6 @@
+import streamlit as st
 import matplotlib.pyplot as plt
-
+st.title("Activity1\nGroup6\nMidpointLine")
 def DDALine (x1,x2,y1,y2):
 
     x = [x1, x2]

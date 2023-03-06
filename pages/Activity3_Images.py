@@ -1,7 +1,8 @@
+import streamlit as st
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-
+st.title("Activity3\nGroup6\nImages")
 # Reading of Image
 i = int(1)
 jpg = str(".jpg")
