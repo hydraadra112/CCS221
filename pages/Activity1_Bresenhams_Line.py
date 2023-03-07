@@ -18,16 +18,19 @@ def DDALine (x1, y1, x2, y2, color):
     plt.show()
     
 def main () :
-    x1 = 10
-    y1 = 15
-    x2 = 45
-    y2 = 67
     
     x1 = st.number_input('X1: ')
     y1 = st.number_input('Y1: ')
     x2 = st.number_input('X2: ')
     y2 = st.number_input('Y2: ')
+    
     color = "b."
+    
+    x1 = 10
+    y1 = 15
+    x2 = 45
+    y2 = 67
+    
     DDALine (x1, y1, x2, y2, color)
     
     #Enter X1: 10
