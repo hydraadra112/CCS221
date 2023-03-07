@@ -11,16 +11,17 @@ def DDALine (x1, y1, x2, y2, color):
     Yinc = float(dy / steps)
     
     for i in range (0, int(steps+1)):
-        plt.plot(int(x1), int(y1), color)
+        st.pyplot(int(x1), int(y1), color)
         x1 += Xinc
         y1 += Yinc
+        
     plt.show()
     
 def main () :
-    x1 = int (input ( "Enter X1: "))
-    y1 = int (input ( "Enter Y1: "))
-    x2 = int (input ( "Enter X2: ")) 
-    y2 = int (input ("Enter Y2: "))
+    x1 = st.number_input('X1: ')
+    y1 = st.number_input('Y1: ')
+    x2 = st.number_input('X2: ')
+    y2 = st.number_input('Y2: ')
     color = "b."
     DDALine (x1, y1, x2, y2, color)
     
