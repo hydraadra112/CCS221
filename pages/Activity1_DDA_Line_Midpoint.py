@@ -28,7 +28,7 @@ def DDALine (x1, y1, x2, y2):
    
     st.pyplot(xcords,ycords,marker="o", markersize=2, markerfacecolor="red")
     st.pylot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
-    plt.line_chart()
+    st.line_chart()
     
 def main () :
     x1 = st.number_input('X1: ' 1, 100, 0.1)
