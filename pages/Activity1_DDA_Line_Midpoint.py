@@ -26,15 +26,16 @@ def DDALine (x1, y1, x2, y2):
         x += Xinc
         y += Yinc
    
-    plt.plot(xcords,ycords,marker="o", markersize=2, markerfacecolor="red")
-    plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
-    plt.show()
+    st.pyplot(xcords,ycords,marker="o", markersize=2, markerfacecolor="red")
+    st.pylot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
+    plt.line_chart()
     
 def main () :
-    x1 = int (input ( "Enter X1: "))
-    y1 = int (input ( "Enter Y1: "))
-    x2 = int (input ( "Enter X2: ")) 
-    y2 = int (input ("Enter Y2: "))
+    x1 = st.number_input('X1: ' 1, 100, 0.1)
+    y1 = st.number_input('Y1: ' 1, 100, 0.1)
+    x2 = st.number_input('X2: ' 1, 100, 0.1)
+    y2 = st.number_input('Y2: ' 1, 100, 0.1)
+    
     DDALine (x1, y1, x2, y2)
     
 if __name__ == '__main__':
