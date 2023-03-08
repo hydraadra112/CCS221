@@ -10,15 +10,15 @@ def DDALine (x1,x2,y1,y2):
     y3 = (y1 + y2) / 2 # Midpoint of Y
     print("Midpoint Line:", x3,"&", y3)
     
-    plt.plot(x,y)
-    plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
+    st.line_chart(x,y)
+    st.line_chart(x3,y3,marker="o", markersize=5, markerfacecolor="red")
     plt.show()
 
 def main():
-    x1 = int (input ( "Enter X1: "))
-    y1 = int (input ( "Enter Y1: "))
-    x2 = int (input ( "Enter X2: ")) 
-    y2 = int (input ("Enter Y2: "))
+    x1 = st.number_input('X1: ')
+    y1 = st.number_input('Y1: ')
+    x2 = st.number_input('X2: ')
+    y2 = st.number_input('Y2: ')
     DDALine (x1,x2,y1,y2)
     
     
