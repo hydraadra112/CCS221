@@ -31,10 +31,12 @@ def DDALine (x1, y1, x2, y2):
     st.line_chart()
     
 def main () :
-    x1 = st.slider('X1: ' 1, 100, 1)
-    y1 = st.slider('Y1: ' 1, 100, 1)
-    x2 = st.slider('X2: ' 1, 100, 1)
-    y2 = st.slider('Y2: ' 1, 100, 1)
+    
+    x1 = st.number_input('X1: ')
+    y1 = st.number_input('Y1: ')
+    x2 = st.number_input('X2: ')
+    y2 = st.number_input('Y2: ')
+    
     
     DDALine (x1, y1, x2, y2)
     
