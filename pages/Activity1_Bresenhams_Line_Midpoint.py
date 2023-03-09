@@ -11,7 +11,12 @@ def DDALine (x1, y1, x2, y2, color):
     y3 = (y1 + y2) / 2 # Midpoint of Y
     print("Midpoint Line:", x3,"&", y3)
     
-    steps = abs(dx) if abs(dx) > abs(dy) else abs(dy)
+    if abs(dx) > abs(dy):
+        steps = abs(dx)
+    
+    else:
+        steps = abs(dy)
+        
     
     Xinc = float(dx / steps)
     Yinc = float(dy / steps)
