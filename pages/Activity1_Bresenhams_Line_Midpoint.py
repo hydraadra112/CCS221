@@ -33,10 +33,10 @@ def DDALine (x1, y1, x2, y2, color):
     st.pyplot(fig)
     
 def main () :
-    x1 = st.slider('X1: ', 0, 1000, 1)
-    y1 = st.slider('Y1: ', 0, 1000, 1)
-    x2 = st.slider('X2: ', 0, 1000, 1)
-    y2 = st.slider('Y2: ', 0, 1000, 1)
+    x1 = st.slider('X1: ', 0, 100, 1)
+    y1 = st.slider('Y1: ', 0, 100, 1)
+    x2 = st.slider('X2: ', 0, 100, 1)
+    y2 = st.slider('Y2: ', 0, 100, 1)
     color = "b."
     DDALine (x1, y1, x2, y2, color)
     
