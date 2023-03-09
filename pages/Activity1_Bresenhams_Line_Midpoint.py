@@ -5,8 +5,8 @@ st.title("Activity1\nGroup6\nBresenhamMidpoint")
 
 def DDALine (x1, y1, x2, y2, color):
     fig = plt.figure()
-    dx = x1 - x2
-    dy = y1 - y2
+    dx = (x1 - x2)
+    dy = (y1 - y2)
     
     x3 = (x1+x2) / 2 #Midpoint of X
     y3 = (y1 + y2) / 2 # Midpoint of Y
