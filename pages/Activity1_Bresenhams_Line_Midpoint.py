@@ -5,12 +5,12 @@ st.title("Activity1\nGroup6\nBresenhamMidpoint")
 
 def DDALine (x1, y1, x2, y2, color):
     fig = plt.figure()
-    dx = abs(x1 - x2)
-    dy = abs(y1 - y2)
+    dx = x1 - x2
+    dy = y1 - y2
     
     x3 = (x1+x2) / 2 #Midpoint of X
     y3 = (y1 + y2) / 2 # Midpoint of Y
-    print("Midpoint Line:", x3,"&", y3)
+    st.write("Midpoint Line:", x3,"&", y3)
     
     if abs(dx) > abs(dy):
         steps = abs(dx)
@@ -24,10 +24,10 @@ def DDALine (x1, y1, x2, y2, color):
     
     for i in range (0, int(steps+1)):
         plt.plot(int(x1), int(y1), color)
-        plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="r")
         x1 += Xinc
         y1 += Yinc
-
+    
+    plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="r")
     plt.show()
     st.pyplot(fig)
     
