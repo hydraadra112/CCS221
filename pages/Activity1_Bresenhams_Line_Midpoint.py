@@ -21,21 +21,19 @@ def DDALine (x1, y1, x2, y2, color):
         x1 += Xinc
         y1 += Yinc
         
-    st.pyplot(x3,y3,marker="o", markersize=5, markerfacecolor="r")
+    fig = plt.figure()
+    
+    plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="r")
     plt.show()
+    st.pyplot(fig)
     
 def main () :
-    x1 = st.number_input('X1: ')
-    y1 = st.number_input('Y1: ')
-    x2 = st.number_input('X2: ')
-    y2 = st.number_input('Y2: ')
+    x1 = st.slider('X1: ', 0, 1000, 1)
+    y1 = st.slider('Y1: ', 0, 1000, 1)
+    x2 = st.slider('X2: ', 0, 1000, 1)
+    y2 = st.slider('Y2: ', 0, 1000, 1)
     color = "b."
     DDALine (x1, y1, x2, y2, color)
-    
-    x1 = 10
-    y1 = 15
-    x2 = 45
-    y2 = 67
     
     #Enter X1: 10
     #Enter Y1: 15
