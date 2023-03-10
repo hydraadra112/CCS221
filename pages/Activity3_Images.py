@@ -15,16 +15,16 @@ def translation(i):
                                  [0, 1, 200],
                                  [0, 0, 1]])
     
-    for i in range(1, 5):
-        img_ = cv2.imread(address + str(i) + jpg)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
-        cols, rows = (img_.shape[:2])
-        
-        translated_img_ = cv2.warpPerspective(img_, m_translation_, (cols, rows))
-        plt.axis('off')
-        plt.imshow(translated_img_)
-        plt.show()
-        st.pyplot(fig)
+ 
+    img_ = cv2.imread(address + str(i) + jpg)
+    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    cols, rows = (img_.shape[:2])
+
+    translated_img_ = cv2.warpPerspective(img_, m_translation_, (cols, rows))
+    plt.axis('off')
+    plt.imshow(translated_img_)
+    plt.show()
+    st.pyplot(fig)
 
 def rotation(i):
     
@@ -34,16 +34,16 @@ def rotation(i):
                               [np.sin(angle), np.cos(angle), 0],
                               [0, 0, 1]])
     
-    for i in range(1, 5):
-        img_ = cv2.imread(str(i) + jpg)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
-        cols, rows = img_.shape[:2] 
-        
-        rotated_img_ = cv2.warpPerspective(img_, m_rotation_, (int(cols), int(rows)))
-        plt.axis('off')
-        plt.imshow(rotated_img_)
-        plt.show()
-        st.pyplot(fig)
+   
+    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    cols, rows = img_.shape[:2] 
+
+    rotated_img_ = cv2.warpPerspective(img_, m_rotation_, (int(cols), int(rows)))
+    plt.axis('off')
+    plt.imshow(rotated_img_)
+    plt.show()
+    st.pyplot(fig)
     
 def scaling(i):
     
@@ -52,16 +52,16 @@ def scaling(i):
                              [0, 1.8, 0],
                              [0, 0, 1]])
     
-    for i in range(1, 5):
-        img_ = cv2.imread(str(i) + jpg)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
-        cols, rows = img_.shape[:2] 
-    
-        scaled_img_ = cv2.warpPerspective(img_, m_scaling_, (cols*2, rows*2))
-        plt.axis('off')
-        plt.imshow(scaled_img_)
-        plt.show()
-        st.pyplot(fig)
+   
+    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    cols, rows = img_.shape[:2] 
+
+    scaled_img_ = cv2.warpPerspective(img_, m_scaling_, (cols*2, rows*2))
+    plt.axis('off')
+    plt.imshow(scaled_img_)
+    plt.show()
+    st.pyplot(fig)
     
 def shear(i):
     
@@ -70,16 +70,16 @@ def shear(i):
                                [0, 1, 0],
                                [0, 0, 1]])
     
-    for i in range(1, 5):
-        img_ = cv2.imread(str(i) + jpg)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
-        cols, rows = img_.shape[:2]
     
-        sheared_img_x = cv2.warpPerspective(img_,m_shearing_x,(int(cols*1.5), int(rows*1.5)))
-        plt.axis('off')
-        plt.imshow(sheared_img_x)
-        plt.show()
-        st.pyplot(fig)
+    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    cols, rows = img_.shape[:2]
+
+    sheared_img_x = cv2.warpPerspective(img_,m_shearing_x,(int(cols*1.5), int(rows*1.5)))
+    plt.axis('off')
+    plt.imshow(sheared_img_x)
+    plt.show()
+    st.pyplot(fig)
 
 def reflection(rows,i):
     
@@ -88,16 +88,16 @@ def reflection(rows,i):
                                 [0, -1, rows],
                                 [0, 0, 1]])
     
-    for i in range(1, 5):
-        img_ = cv2.imread(str(i) + jpg)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
-        cols, rows = img_.shape[:2]
-    
-        reflected_img_ = cv2.warpPerspective(img_, m_reflection_,(int(cols), int(rows)))
-        plt.axis('off')
-        plt.imshow(reflected_img_)
-        plt.show()
-        st.pyplot(fig)
+   
+    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    cols, rows = img_.shape[:2]
+
+    reflected_img_ = cv2.warpPerspective(img_, m_reflection_,(int(cols), int(rows)))
+    plt.axis('off')
+    plt.imshow(reflected_img_)
+    plt.show()
+    st.pyplot(fig)
 
 def main () :
     i = st.slider('Choose Image (1-3)', 1, 3, 1)
