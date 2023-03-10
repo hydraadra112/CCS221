@@ -101,6 +101,7 @@ def reflection(rows,i):
 
 def main () :
     i = st.slider('Choose Image (1-3)', 1, 3, 1)
+    rows = img_.shape[:2]
     translation(i)
     rotation(i)
     scaling(i)
