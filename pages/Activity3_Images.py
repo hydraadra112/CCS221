@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 st.title("Activity3\nGroup6\nImages")
 # Reading of Image
 jpg = str(".jpg")
-fig = plt.figure
+fig = plt.figure()
 address = str("pages/")
 
 def translation(i):
