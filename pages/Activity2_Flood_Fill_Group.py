@@ -16,20 +16,16 @@ plt.show()
 st.pyplot(fig)
 
 color = st.slider('Enter Color Number to Fill (0-16):', 0, 16, 1)
-st.write('Changing Color Process')
+st.write('Color Changed')
 
 for row in range(len(two_d_arr)):
     for col in range(len(two_d_arr)):
       
         if two_d_arr[row][col] == 1:
-          col += 1
           continue
         
         two_d_arr[row][col] = color
-        
-        plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
-        plt.show()
-        st.pyplot(fig)
+      
 
 st.write('Finished Product')
 plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
