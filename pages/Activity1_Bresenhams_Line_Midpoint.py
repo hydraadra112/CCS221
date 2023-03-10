@@ -6,7 +6,11 @@ st.title("Activity1\nGroup6\nBresenhamsLine")
 def BresenhamLine(x1, y1, x2, y2, color):
     
     fig = plt.figure()
-    plt.plot(x1,y1,x2,y2)
+    
+    xline = [x1, x2]
+    yline = [y1, y2]
+    
+    plt.plot(xline,yline)
     
     x,y = x1,y1
     dx = abs(x2 - x1)
