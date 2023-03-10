@@ -2,7 +2,51 @@ import streamlit as st
 import matplotlib.pyplot as plt
 st.title("Activity1\nGroup6\nBresenhamsLine")
 
+def BresenhamLineMidpoint(x1, y1, x2, y2, color):
+    
+    fig = plt.figure()
+    x,y = x1,y1
+    dx = abs(x2 - x1)
+    dy = abs(y2 -y1)
+    
+    x3 = float((x1 + x2) / 2)
+    y3 = float((y1 + y2) / 2)
+    
+    gradient = dy/float(dx)
 
+    if gradient > 1:
+        dx, dy = dy, dx
+        x, y = y, x
+        x1, y1 = y1, x1
+        x2, y2 = y2, x2
+
+    p = 2*dy - dx
+    
+    xcords = [x]
+    ycords = [y]
+
+    for k in range(2, dx + 2):
+        if p > 0:
+            y = y + 1 if y < y2 else y - 1
+            p = p + 2 * (dy - dx)
+        else:
+            p = p + 2 * dy
+
+        x = x + 1 if x < x2 else x - 1
+        
+        xcords.append(x)
+        ycords.append(y)
+    
+    
+    plt.plot(x3,y3, marker="x", markersize=6, markerfacecolor="r")
+    plt.plot(xcords, ycords, color, marker='s', markersize=5)
+    plt.plot(round(dx/2 + x1), round(dy/2 + y1), markersize=5)
+
+    plt.show()
+    st.pyplot(fig)
+    
+    st.write("Midpoint: ", float(x3), "&", float(y3))
+    
 def BresenhamLine(x1, y1, x2, y2, color):
     
     fig = plt.figure()
@@ -53,7 +97,7 @@ def main():
     
     color = "b." 
     BresenhamLine(x, y, x2, y2, color)
-
+    BresenhamLineMidpoint(x1, y1, x2, y2, color)
 
 if __name__ == '__main__':
     main()
