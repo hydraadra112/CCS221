@@ -117,6 +117,8 @@ def main():
     x = st.slider('X: ', 0, 10, 1)
     y = st.slider('Y: ', 0, 10, 1)
     z = st.slider('Z: ', 0, 10, 1)
+    
+    st.write('Translation Values')
     bottom_lower=(x, y, z)
     
     init_shape_ = _pyramid_(bottom_lower)
