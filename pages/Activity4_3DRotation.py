@@ -26,8 +26,12 @@ def _plt_basic_object_(points):
     ax.set_xlabel ("X axis")
     ax.set_ylabel ("Y Axis")
     ax.set_zlabel ("Z Axis")
+    
+    fig_html = mpld3.fig_to_html(fig)
+    components.html(fig_html, height=600)
+    
     plt.show()
-    st.pyplot(fig)
+    st.pyplot(fig_html)
     
     
 def _90deg_(bottom_lower=(0, 0, 0)):
