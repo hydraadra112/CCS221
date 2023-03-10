@@ -5,7 +5,7 @@ from matplotlib import cm
 from scipy.spatial import Delaunay
 import tensorflow as tf
 import streamlit as st
-import mpld3 as mpld3
+import mpld3
 import streamlit.components.v1 as components
 
 st.title("Activity4\nGroup6\n3DRotation")
@@ -30,6 +30,7 @@ def _plt_basic_object_(points):
     ax.set_ylabel ("Y Axis")
     ax.set_zlabel ("Z Axis")
     
+    plt.show()
     fig_html = mpld3.fig_to_html(fig)
     components.html(fig_html, height=600)
     
