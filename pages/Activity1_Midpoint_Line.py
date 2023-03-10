@@ -11,8 +11,8 @@ def DDALine (x1,x2,y1,y2):
     y3 = (y1 + y2) / 2 # Midpoint of Y
     print("Midpoint Line:", x3,"&", y3)
     
-    st.plot(x,y)
-    st.plot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
+    plt.plot(x,y)
+    plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
     plt.show()
     st.pylot(fig)
 
