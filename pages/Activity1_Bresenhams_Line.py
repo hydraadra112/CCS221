@@ -40,7 +40,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
         xcoordinates.append(x)
         ycoordinates.append(y)
     
-    plt.plot(x3,y3, marker='o', markersize=6)
+    plt.plot(x3, y3, marker="o", markersize=6, markerfacecolor="r")
     plt.plot(xcoordinates, ycoordinates, color, marker='s', markersize=5)
     plt.plot(round(dx/2 + x1), round(dy/2 + y1), 'bo', markersize=5)
 
