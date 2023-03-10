@@ -11,9 +11,9 @@ two_d_arr = np.array([[0, 0, 0, 0],
                     [0, 0, 0, 0]])
 
 
-        plt.imshow(two_d_arr, interpolation='none', cmap='gray_r')
-        plt.show()
-        st.pyplot(fig)
+plt.imshow(two_d_arr, interpolation='none', cmap='gray_r')
+plt.show()
+st.pyplot(fig)
 
 color = st.slider('Enter Color Number to Fill (0-16):', 0, 16, 1)
 
