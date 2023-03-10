@@ -6,6 +6,8 @@ st.title("Activity1\nGroup6\nBresenhamsLine")
 def BresenhamLine(x1, y1, x2, y2, color):
     
     fig = plt.figure()
+    plt.plot(x1,y1,x2,y2)
+    
     x,y = x1,y1
     dx = abs(x2 - x1)
     dy = abs(y2 -y1)
@@ -37,7 +39,6 @@ def BresenhamLine(x1, y1, x2, y2, color):
         
         xcords.append(x)
         ycords.append(y)
-    
     
     plt.plot(x3,y3, marker="x", markersize=6, markerfacecolor="r")
     plt.plot(xcords, ycords, color, marker='s', markersize=5)
