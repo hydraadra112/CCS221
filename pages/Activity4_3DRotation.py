@@ -110,7 +110,7 @@ def rotate_obj(points, angle):
 
 def main():
     
-    angle = st.slider('Rotation Size : ', 0 250, 1)
+    angle = st.slider('Rotation Size : ', 0, 250, 1)
     
     init_shape_ = _pyramid_(bottom_lower=(0, 0, 0))
     with tf.compat.v1.Session() as session:
