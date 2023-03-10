@@ -35,7 +35,7 @@ def rotation(i):
                               [0, 0, 1]])
     
    
-    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.imread(address + str(i) + jpg)
     img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
     cols, rows = img_.shape[:2] 
 
@@ -53,7 +53,7 @@ def scaling(i):
                              [0, 0, 1]])
     
    
-    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.imread(address + str(i) + jpg)
     img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
     cols, rows = img_.shape[:2] 
 
@@ -71,7 +71,7 @@ def shear(i):
                                [0, 0, 1]])
     
     
-    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.imread(address + str(i) + jpg)
     img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
     cols, rows = img_.shape[:2]
 
@@ -89,7 +89,7 @@ def reflection(rows,i):
                                 [0, 0, 1]])
     
    
-    img_ = cv2.imread(str(i) + jpg)
+    img_ = cv2.imread(address + str(i) + jpg)
     img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
     cols, rows = img_.shape[:2]
 
