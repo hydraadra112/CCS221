@@ -23,7 +23,12 @@ for row in range(len(two_d_arr)):
       
         if two_d_arr[row][col] == 1:
           continue
-        
+          
+        if two_d_arr[row][col] == two_d_arr[3][col]
+          plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
+          plt.show()
+          st.pyplot(fig)
+
         two_d_arr[row][col] = color
       
 
