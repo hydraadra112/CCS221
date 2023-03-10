@@ -7,11 +7,12 @@ def BresenhamLine(x1, y1, x2, y2, color):
     
     fig = plt.figure()
     x,y = x1,y1
-    x3 = float((x1 + x2) / 2)
-    y3 = float((y1 + y2) / 2)
-
     dx = abs(x2 - x1)
     dy = abs(y2 -y1)
+    
+    x3 = float((x1 + x2) / 2)
+    y3 = float((y1 + y2) / 2)
+    
     gradient = dy/float(dx)
 
     if gradient > 1:
@@ -21,10 +22,9 @@ def BresenhamLine(x1, y1, x2, y2, color):
         x2, y2 = y2, x2
 
     p = 2*dy - dx
-    # print(f"x = {x}, y = {y}")
-    # Initialize the plotting points
-    xcoordinates = [x]
-    ycoordinates = [y]
+    
+    xcords = [x]
+    ycords = [y]
 
     for k in range(2, dx + 2):
         if p > 0:
@@ -36,12 +36,13 @@ def BresenhamLine(x1, y1, x2, y2, color):
         x = x + 1 if x < x2 else x - 1
 
         # print(f"x = {x}, y = {y}")
-        xcoordinates.append(x)
-        ycoordinates.append(y)
+        xcords.append(x)
+        ycords.append(y)
     
-    plt.plot(x3,y3, marker="o", markersize=6, markerfacecolor="r")
-    plt.plot(xcoordinates, ycoordinates, color, marker='s', markersize=5)
-    plt.plot(round(dx/2 + x1), round(dy/2 + y1), 'bo', markersize=5)
+    
+    plt.plot(x3,y3, marker="x", markersize=6, markerfacecolor="r")
+    plt.plot(xcords, ycords, color, marker='s', markersize=5)
+    plt.plot(round(dx/2 + x1), round(dy/2 + y1), markersize=5)
 
     plt.show()
     st.pyplot(fig)
