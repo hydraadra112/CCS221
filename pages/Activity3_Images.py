@@ -8,10 +8,6 @@ jpg = str(".jpg")
 fig = plt.figure
 address = str("pages/")
 
-img_ = cv2.imread(str(i) + jpg)
-img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
-cols, rows = img_.shape[:2]
-
 def translation(i):
     
     #Translation
