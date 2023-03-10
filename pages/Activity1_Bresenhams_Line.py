@@ -6,11 +6,10 @@ st.title("Activity1\nGroup6\nBresenhamsLine")
 def BresenhamLine(x1, y1, x2, y2, color):
     
     fig = plt.figure()
-    
+    x,y = x1,y1
     x3 = float((x1 + x2) / 2)
     y3 = float((y1 + y2) / 2)
 
-    x,y = x1,y1
     dx = abs(x2 - x1)
     dy = abs(y2 -y1)
     gradient = dy/float(dx)
