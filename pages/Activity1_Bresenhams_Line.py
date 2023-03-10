@@ -6,6 +6,9 @@ st.title("Activity1\nGroup6\nBresenhamsLine")
 def BresenhamLine(x1, y1, x2, y2, color):
     
     fig = plt.figure()
+    
+    x3 = float((x1 + x2) / 2)
+    y3 = float((y1 + y2) / 2)
 
     x,y = x1,y1
     dx = abs(x2 - x1)
@@ -36,7 +39,8 @@ def BresenhamLine(x1, y1, x2, y2, color):
         # print(f"x = {x}, y = {y}")
         xcoordinates.append(x)
         ycoordinates.append(y)
-
+    
+    plt.plot(x3,y3, marker='o', markersize=6)
     plt.plot(xcoordinates, ycoordinates, color, marker='s', markersize=5)
     plt.plot(round(dx/2 + x1), round(dy/2 + y1), 'bo', markersize=5)
 
