@@ -5,10 +5,11 @@ import matplotlib.pyplot as plt
 st.title("Activity2\nGroup6\nFloodFill")
 fig = plt.figure()
 
-two_d_arr = np.array([[0, 0, 0, 0],
-                    [0, 1, 1, 0], 
-                    [0, 1, 1, 0],
-                    [0, 0, 0, 0]])
+two_d_arr = np.array([[0, 0, 0, 0, 0],
+                    [0, 1, 1, 0, 1], 
+                    [0, 1, 1, 0, 0],
+                    [0, 0, 0, 1, 1],
+                    [0, 1, 0, 0, 1]])
 
 st.write('First Plot')
 plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
