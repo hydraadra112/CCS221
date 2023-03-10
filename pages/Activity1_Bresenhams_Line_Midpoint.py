@@ -1,49 +1,65 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+st.title("Activity1\nGroup6\nBresenhamsLine")
 
-st.title("Activity1\nGroup6\nBresenhamMidpoint")
 
-def DDALine (x1, y1, x2, y2, color):
+def BresenhamLine(x1, y1, x2, y2, color):
+    
     fig = plt.figure()
-    dx = abs(x1 - x2)
-    dy = abs(y1 - y2)
+    x,y = x1,y1
+    dx = abs(x2 - x1)
+    dy = abs(y2 -y1)
     
-    x3 = (x1+x2) / 2 #Midpoint of X
-    y3 = (y1 + y2) / 2 # Midpoint of Y
-    st.write("Midpoint Line:", x3,"&", y3)
+    x3 = float((x1 + x2) / 2)
+    y3 = float((y1 + y2) / 2)
     
-    if abs(dx) > abs(dy):
-        steps = abs(dx)
+    gradient = dy/float(dx)
+
+    if gradient > 1:
+        dx, dy = dy, dx
+        x, y = y, x
+        x1, y1 = y1, x1
+        x2, y2 = y2, x2
+
+    p = 2*dy - dx
     
-    else:
-        steps = abs(dy)
+    xcords = [x]
+    ycords = [y]
+
+    for k in range(2, dx + 2):
+        if p > 0:
+            y = y + 1 if y < y2 else y - 1
+            p = p + 2 * (dy - dx)
+        else:
+            p = p + 2 * dy
+
+        x = x + 1 if x < x2 else x - 1
         
+        xcords.append(x)
+        ycords.append(y)
     
-    Xinc = float(dx / steps)
-    Yinc = float(dy / steps)
     
-    for i in range (0, int(steps+1)):
-        plt.plot(int(x1), int(y1), color)
-        x1 += Xinc
-        y1 += Yinc
-    
-    plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="r")
+    plt.plot(x3,y3, marker="x", markersize=6, markerfacecolor="r")
+    plt.plot(xcords, ycords, color, marker='s', markersize=5)
+    plt.plot(round(dx/2 + x1), round(dy/2 + y1), markersize=5)
+
     plt.show()
     st.pyplot(fig)
     
-def main () :
-    x1 = st.slider('X1: ', 0, 100, 1)
-    y1 = st.slider('Y1: ', 0, 100, 1)
+    st.write("Midpoint: ", float(x3), "&", float(y3))
+
+def main():
+    
+    x = st.slider('X1: ', 0, 100, 1)
+    y = st.slider('Y1: ', 0, 100, 1)
+
     x2 = st.slider('X2: ', 0, 100, 1)
     y2 = st.slider('Y2: ', 0, 100, 1)
-    color = "b."
-    DDALine (x1, y1, x2, y2, color)
     
-    #Enter X1: 10
-    #Enter Y1: 15
-    #Enter X2: 45
-    #Enter Y2: 67 
-    
+    color = "b." 
+    BresenhamLine(x, y, x2, y2, color)
+
+
 if __name__ == '__main__':
     main()
             
