@@ -11,7 +11,7 @@ two_d_arr = np.array([[0, 0, 0, 0],
                     [0, 0, 0, 0]])
 
 st.write('First Plot')
-plt.imshow(two_d_arr, interpolation='none', cmap='inferno')
+plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
 
@@ -22,16 +22,17 @@ for row in range(len(two_d_arr)):
     for col in range(len(two_d_arr)):
       
         if two_d_arr[row][col] == 1:
+          col += 1
           continue
         
         two_d_arr[row][col] = color
         
-        plt.imshow(two_d_arr, interpolation='none', cmap='inferno')
+        plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
         plt.show()
         st.pyplot(fig)
 
 st.write('Finished Product')
-plt.imshow(two_d_arr, interpolation='none', cmap='inferno')
+plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
 
