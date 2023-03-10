@@ -8,11 +8,11 @@ jpg = str(".jpg")
 fig = plt.figure()
 address = str("pages/")
 
-def translation(i):
+def translation(i,x,y):
     
     #Translation
-    m_translation_ = np.float32([[1, 0, 100],
-                                 [0, 1, 200],
+    m_translation_ = np.float32([[1, 0, x],
+                                 [0, 1, y],
                                  [0, 0, 1]])
     
  
@@ -26,10 +26,10 @@ def translation(i):
     plt.show()
     st.pyplot(fig)
 
-def rotation(i):
+def rotation(i,size):
     
     # Rotation
-    angle = np.radians(10)
+    angle = np.radians(size)
     m_rotation_ = np.float32([[np.cos(angle), -(np.sin(angle)), 0],
                               [np.sin(angle), np.cos(angle), 0],
                               [0, 0, 1]])
@@ -105,10 +105,13 @@ def main () :
     i = st.slider('Choose Image (1-3)', 1, 3, 1)
     
     st.write("Translation")
-    translation(i)
-        
+    x = st.slider('X:', 0, 150, 1)
+    y = st.slider('Y:', 0, 150, 1)
+    translation(i,x,y)
+    
     st.write("Rotation")
-    rotation(i)
+    size = st.slider('Rotation Size: ', 0, 20, 1)
+    rotation(i,size)
     
     st.write("Scale")
     scaling(i)
