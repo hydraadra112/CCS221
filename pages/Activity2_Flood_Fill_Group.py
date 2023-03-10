@@ -11,7 +11,7 @@ two_d_arr = np.array([[0, 0, 0, 0],
                     [0, 0, 0, 0]])
 
 st.write('First Plot')
-plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
+plt.imshow(two_d_arr, interpolation='none', cmap='inferno')
 plt.show()
 st.pyplot(fig)
 
@@ -26,7 +26,7 @@ for row in range(len(two_d_arr)):
         two_d_arr[row][col] = color
 
 st.write('Second Plot with Color Changed')
-plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
+plt.imshow(two_d_arr, interpolation='none', cmap='inferno')
 plt.show()
 st.pyplot(fig)
 
