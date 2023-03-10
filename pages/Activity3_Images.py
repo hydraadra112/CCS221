@@ -4,15 +4,15 @@ import cv2
 import matplotlib.pyplot as plt
 st.title("Activity3\nGroup6\nImages")
 # Reading of Image
-i = int(1)
 jpg = str(".jpg")
-address = str("C:/Users/admin/Desktop/PROG/python_acts/python_exercises/")
+fig = plt.figure
+address = str("pages/")
 
 img_ = cv2.imread(str(i) + jpg)
 img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
 cols, rows = img_.shape[:2]
 
-def translation():
+def translation(i):
     
     #Translation
     m_translation_ = np.float32([[1, 0, 100],
@@ -28,8 +28,9 @@ def translation():
         plt.axis('off')
         plt.imshow(translated_img_)
         plt.show()
+        st.pyplot(fig)
 
-def rotation():
+def rotation(i):
     
     # Rotation
     angle = np.radians(10)
@@ -46,8 +47,9 @@ def rotation():
         plt.axis('off')
         plt.imshow(rotated_img_)
         plt.show()
+        st.pyplot(fig)
     
-def scaling():
+def scaling(i):
     
     # Scaling
     m_scaling_ = np.float32([[1.5, 0, 0],
@@ -63,8 +65,9 @@ def scaling():
         plt.axis('off')
         plt.imshow(scaled_img_)
         plt.show()
+        st.pyplot(fig)
     
-def shear():
+def shear(i):
     
     # Shearing
     m_shearing_x = np.float32([[1, 0.5, 0],
@@ -80,8 +83,9 @@ def shear():
         plt.axis('off')
         plt.imshow(sheared_img_x)
         plt.show()
+        st.pyplot(fig)
 
-def reflection(rows):
+def reflection(rows,i):
     
     # Reflection
     m_reflection_ = np.float32([[1, 0, 0],
@@ -97,47 +101,16 @@ def reflection(rows):
         plt.axis('off')
         plt.imshow(reflected_img_)
         plt.show()
+        st.pyplot(fig)
 
 def main () :
-    print("Translation  :: 1")
-    print("Rotation     :: 2")
-    print("Scaling      :: 3")
-    print("Shear        :: 4")
-    print("Reflection   :: 5")
-    choice = int(input("Input Choice :: "))
+    i = st.slider('Choose Image (1-3)', 1, 3, 1)
+    translation(i)
+    rotation(i)
+    scaling(i)
+    shear(i)
+    reflection(rows,i)
     
-    again = "y"
-    
-    while(again == "y"):
-        
-        if choice == 1:
-            translation()
-        
-        elif choice == 2:
-            rotation()
-        
-        elif choice == 3:
-            scaling()
-        
-        elif choice == 4:
-            shear()
-        
-        elif choice == 5:
-            reflection(rows)
-            
-        again = str(input("Continue (y/n): "))
-        
-        if again == "n":
-            exit()
-        
-        print("Translation  :: 1")
-        print("Rotation     :: 2")
-        print("Scaling      :: 3")
-        print("Shear        :: 4")
-        print("Reflection   :: 5")
-        choice = int(input("Input Choice :: "))
-        
-
     
 if __name__ == '__main__':
     main()
