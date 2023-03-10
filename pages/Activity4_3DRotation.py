@@ -5,6 +5,9 @@ from matplotlib import cm
 from scipy.spatial import Delaunay
 import tensorflow as tf
 import streamlit as st
+import mpld3
+import streamlit.components.v1 as components
+
 st.title("Activity4\nGroup6\n3DRotation")
 # 3D Rotation by Carado, Molet & Pendon
 
