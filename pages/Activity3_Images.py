@@ -103,10 +103,20 @@ def reflection(i):
 
 def main () :
     i = st.slider('Choose Image (1-3)', 1, 3, 1)
+    
+    st.write("Translation")
     translation(i)
+        
+    st.write("Rotation")
     rotation(i)
+    
+    st.write("Scale")
     scaling(i)
+    
+    st.write("Shear")
     shear(i)
+    
+    st.write("Reflection")
     reflection(i)
     
     
