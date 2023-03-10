@@ -10,7 +10,7 @@ two_d_arr = np.array([[0, 1, 0],
                     [0, 1, 0]])
 
 
-color = st.slider('Enter Color Number to Fill (0-16):' 0, 16, 1)
+color = st.slider('Enter Color Number to Fill (0-16):', 0, 16, 1)
 
 for row in range(len(two_d_arr)):
     for col in range(len(two_d_arr)):
