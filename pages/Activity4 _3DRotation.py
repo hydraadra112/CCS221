@@ -10,7 +10,7 @@ st.title("Activity4\nGroup6\n3DRotation")
 
 
 def _plt_basic_object_(points):
-    
+    fig = plt.figure()
     tri = Delaunay(points).convex_hull
     
     fig = plt.figure(figsize=(8, 8))
@@ -27,6 +27,7 @@ def _plt_basic_object_(points):
     ax.set_ylabel ("Y Axis")
     ax.set_zlabel ("Z Axis")
     plt.show()
+    st.pyplot(fig)
     
     
 def _90deg_(bottom_lower=(0, 0, 0)):
@@ -109,34 +110,29 @@ def rotate_obj(points, angle):
 
 def main():
     
-    print("1 Pyramid")
-    print("2 90 Degree Angle Triangle")
-    print("3 Diamond")
-    print("4 Prism")
-    choice = int(input("Input Shape: "))
-    angle = float(input("Rotation Size : "))
+    angle = st.slider('Rotation Size : ', 0 250, 1)
     
-    if choice == 1:
-        init_shape_ = _pyramid_(bottom_lower=(0, 0, 0))
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
-        
-    elif choice == 2:
-        init_shape_ = _90deg_(bottom_lower=(0, 0, 0))
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
-        
-    elif choice == 3:
-        init_shape_ = _diamond_(bottom_lower=(0, 0, 0))
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
-        
-    elif choice == 4:
-        init_shape_ = _prism_(bottom_lower=(0, 0, 0))
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
-        
+    init_shape_ = _pyramid_(bottom_lower=(0, 0, 0))
+    with tf.compat.v1.Session() as session:
+        rotated_object = session.run(rotate_obj(init_shape_, angle))
     _plt_basic_object_(rotated_object)
+
+    init_shape_ = _90deg_(bottom_lower=(0, 0, 0))
+    with tf.compat.v1.Session() as session:
+        rotated_object = session.run(rotate_obj(init_shape_, angle))
+    _plt_basic_object_(rotated_object)
+
+    init_shape_ = _diamond_(bottom_lower=(0, 0, 0))
+    with tf.compat.v1.Session() as session:
+        rotated_object = session.run(rotate_obj(init_shape_, angle))
+    _plt_basic_object_(rotated_object)
+
+    init_shape_ = _prism_(bottom_lower=(0, 0, 0))
+    with tf.compat.v1.Session() as session:
+        rotated_object = session.run(rotate_obj(init_shape_, angle))
+    _plt_basic_object_(rotated_object)
+        
+    
     
     
     
