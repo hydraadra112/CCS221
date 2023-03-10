@@ -84,8 +84,6 @@ def BresenhamLine(x1, y1, x2, y2, color):
 
     plt.show()
     st.pyplot(fig)
-    
-    st.write("Midpoint: ", float(x3), "&", float(y3))
 
 def main():
     
