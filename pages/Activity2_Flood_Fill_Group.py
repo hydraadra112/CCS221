@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy as np
-import random as random
 import matplotlib.pyplot as plt
 
 st.title("Activity2\nGroup6\nFloodFill")
@@ -10,8 +9,6 @@ two_d_arr = np.array([[0, 0, 0, 0],
                     [0, 1, 1, 0], 
                     [0, 1, 1, 0],
                     [0, 0, 0, 0]])
-
-random.shuffle(two_d_arr)
 
 st.write('First Plot')
 plt.imshow(two_d_arr, interpolation='none', cmap='inferno')
