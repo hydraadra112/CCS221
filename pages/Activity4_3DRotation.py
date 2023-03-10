@@ -114,9 +114,9 @@ def rotate_obj(points, angle):
 def main():
     
     angle = st.slider('Rotation Size : ', 0, 1500, 1)
-    x = st.slider('X: ', 0, 100, 0)
-    y = st.slider('Y: ', 0, 100, 0)
-    z = st.slider('Z: ', 0, 100, 0)
+    x = st.slider('X: ', 0, 10, 1)
+    y = st.slider('Y: ', 0, 10, 1)
+    z = st.slider('Z: ', 0, 10, 1)
     bottom_lower=(x, y, z)
     
     init_shape_ = _pyramid_(bottom_lower)
