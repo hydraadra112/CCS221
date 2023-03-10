@@ -9,12 +9,12 @@ def DDALine (x1,x2,y1,y2):
     
     x3 = (x1+x2) / 2 #Midpoint of X
     y3 = (y1 + y2) / 2 # Midpoint of Y
-    print("Midpoint Line:", x3,"&", y3)
+    st.write("Midpoint Line:", x3,"&", y3)
     
     plt.plot(x,y)
     plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
     plt.show()
-    st.pylot(fig)
+    st.pyplot(fig)
 
 def main():
     x1 = st.slider('X1: ', 0, 100, 1)
