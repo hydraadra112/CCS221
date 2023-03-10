@@ -33,7 +33,7 @@ def _plt_basic_object_(points):
     
     
     
-def _90deg_(bottom_lower=(0, 0, 0)):
+def _90deg_(bottom_lower):
     
     bottom_lower = np.array(bottom_lower)
     
@@ -49,7 +49,7 @@ def _90deg_(bottom_lower=(0, 0, 0)):
     
     return points
 
-def _pyramid_(bottom_lower=(0, 0, 0)):
+def _pyramid_(bottom_lower):
     0
     bottom_lower = np.array(bottom_lower)
     
@@ -64,7 +64,7 @@ def _pyramid_(bottom_lower=(0, 0, 0)):
     
     return points
 
-def _diamond_(bottom_lower =(0, 0, 0)):
+def _diamond_(bottom_lower):
 
     bottom_lower = np.array(bottom_lower)
 
@@ -82,7 +82,7 @@ def _diamond_(bottom_lower =(0, 0, 0)):
     
     return points
 
-def _prism_(bottom_lower=(0, 0, 0)):
+def _prism_(bottom_lower):
     
     bottom_lower = np.array(bottom_lower)
     
@@ -114,23 +114,27 @@ def rotate_obj(points, angle):
 def main():
     
     angle = st.slider('Rotation Size : ', 0, 1500, 1)
+    x = st.slider('X: ', 0, 100, 0)
+    y = st.slider('Y: ', 0, 100, 0)
+    z = st.slider('Z: ', 0, 100, 0)
+    bottom_lower=(x, y, z)
     
-    init_shape_ = _pyramid_(bottom_lower=(0, 0, 0))
+    init_shape_ = _pyramid_(bottom_lower)
     with tf.compat.v1.Session() as session:
         rotated_object = session.run(rotate_obj(init_shape_, angle))
     _plt_basic_object_(rotated_object)
 
-    init_shape_ = _90deg_(bottom_lower=(0, 0, 0))
+    init_shape_ = _90deg_(bottom_lower)
     with tf.compat.v1.Session() as session:
         rotated_object = session.run(rotate_obj(init_shape_, angle))
     _plt_basic_object_(rotated_object)
 
-    init_shape_ = _diamond_(bottom_lower=(0, 0, 0))
+    init_shape_ = _diamond_(bottom_lower)
     with tf.compat.v1.Session() as session:
         rotated_object = session.run(rotate_obj(init_shape_, angle))
     _plt_basic_object_(rotated_object)
 
-    init_shape_ = _prism_(bottom_lower=(0, 0, 0))
+    init_shape_ = _prism_(bottom_lower)
     with tf.compat.v1.Session() as session:
         rotated_object = session.run(rotate_obj(init_shape_, angle))
     _plt_basic_object_(rotated_object)
