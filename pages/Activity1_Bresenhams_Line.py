@@ -11,8 +11,8 @@ def BresenhamLine(x1, y1, x2, y2, color):
     
     grad = dy/float(dx)
     
-    x3 = (x2 + x1) / 2
-    y3 = (y2 + y1) / 2
+    x3 = float((x2 + x1) / 2)
+    y3 = ((y2 + y1) / 2)
    
 
     if grad > 1:
@@ -50,7 +50,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
     plt.show()
     st.pyplot(fig)
     
-    st.write("Midpoint: ", int(x3), "&", int(y3))
+    st.write("Midpoint: ", float(x3), "&", float(y3))
 
 def main():
     
