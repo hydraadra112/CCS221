@@ -5,6 +5,7 @@ import streamlit as st
 
 st.title('Quiz1\nGroup6')
 
+
 def firstTranslate(bx, by, img, rows, cols):
     
     m_translation_ = np.float32([[1, 0, bx],
