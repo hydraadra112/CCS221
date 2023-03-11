@@ -13,7 +13,7 @@ def firstTranslate(bx, by, img, rows, cols):
 
     img_ = cv2.warpPerspective(img, m_translation_, (rows, cols))
 
-    print(m_translation_)
+    st.write(m_translation_)
     return img_
 
 def translation(img, bx, by, tx, ty, rows, cols):
@@ -27,7 +27,7 @@ def translation(img, bx, by, tx, ty, rows, cols):
 
     translated_img_ = cv2.warpPerspective(img, m_translation_, (rows, cols))
 
-    print(m_translation_)
+    st.write(m_translation_)
     return translated_img_
 
 def main():
@@ -35,7 +35,7 @@ def main():
     fig = plt.figure()
     
     
-    address = str("C:/Users/admin/Desktop/Shes/")
+    address = str("pages/")
     i = st.slider('Choose Picture', 1, 3, 1)
         
     img = cv2.imread(address + str(i) + ".jpg")
