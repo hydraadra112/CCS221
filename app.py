@@ -1,3 +1,8 @@
 import streamlit as st
 
-st.title("Hello!!!")
+st.set_page_config(
+    page_title="Multipage - Group 6"
+    
+)
+
+st.title("Group 6 - CCS221")
