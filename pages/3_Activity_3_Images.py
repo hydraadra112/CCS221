@@ -8,11 +8,11 @@ jpg = str(".jpg")
 fig = plt.figure()
 address = str("pages/")
 
-def translation(i):
+def translation(i,x,y):
     
     #Translation
-    m_translation_ = np.float32([[1, 0, 100],
-                                 [0, 1, 200],
+    m_translation_ = np.float32([[1, 0, x],
+                                 [0, 1, y],
                                  [0, 0, 1]])
     
  
@@ -106,9 +106,12 @@ def main () :
     
     method = st.multiselect('Choose Manipulation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'], ['Translation'])
   
+    
     if 'Translation' in method:
+        x = st.slider('X Translation: ', 0, 120, 1)
+        y = st.slider('Y Translation: ', 0, 120, 1)
         st.write("Translation")
-        translation(i)
+        translation(i,x,y)
     
     if 'Rotation' in method:
         st.write("Rotation")
