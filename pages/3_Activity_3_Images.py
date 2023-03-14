@@ -120,13 +120,13 @@ def main () :
         rotation(i, angle)
         
     if 'Scale' in method:
-        xs = float(st.slider('X Translation', 0, 5, 0.1))
-        ys = float(st.slider('Y Translation', 0, 5, 0.1))
+        xs = float(st.slider('X Translation', 0.0, 5.0, 0.1))
+        ys = float(st.slider('Y Translation', 0.0, 5.0, 0.1))
         st.write("Scale")
         scaling(i,xs,ys)
     
     if 'Shear' in method:
-        shearsize = st.slider('Shear Size', 0, 5, 0.1)
+        shearsize = st.slider('Shear Size', 0.0, 5.0, 0.1)
         st.write("Shear")
         shear(i, shearsize)
     
