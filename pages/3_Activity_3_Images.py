@@ -48,8 +48,6 @@ def rotation(i, angle):
 def scaling(i,x,y):
     
     # Scaling
-    x = np.float32(x)
-    y = np.float32(y)
     
     m_scaling_ = np.float32([[y, 0, 0],
                              [0, x, 0],
@@ -122,8 +120,8 @@ def main () :
         rotation(i, angle)
         
     if 'Scale' in method:
-        x = st.slider('X Translation', 0, 5, 0.1)
-        y = st.slider('Y Translation', 0, 5, 0.1)
+        x = float(st.slider('X Translation', 0, 5, 0.1))
+        y = float(st.slider('Y Translation', 0, 5, 0.1))
         st.write("Scale")
         scaling(i,x,y)
     
