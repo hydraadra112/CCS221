@@ -106,7 +106,7 @@ def main () :
     
     method = st.multiselect('Choose Manipulation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'], ['Translation'])
   
-    if method == 0:
+    if 'Translation' in method:
         st.write("Translation")
         translation(i)
     
