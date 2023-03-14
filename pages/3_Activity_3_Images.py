@@ -104,25 +104,25 @@ def reflection(i):
 def main () :
     i = st.slider('Choose Image (1-3)', 1, 3, 1)
     
-    method = st.multiselect('Choose Manipulation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
+    method = st.multiselect('Choose Manipulation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'], ['Translation'])
   
-    if method == "Translation":
+    if method == 0:
         st.write("Translation")
         translation(i)
     
-    elif method == "Rotation":
+    if method == 1:
         st.write("Rotation")
         rotation(i)
         
-    elif method == "Scale":
+    if method == 2:
         st.write("Scale")
         scaling(i)
     
-    elif method == "Shear":
+    if method == 3:
         st.write("Shear")
         shear(i)
     
-    elif method == "Reflection":
+    if method == 4:
         st.write("Reflection")
         reflection(i)
     
