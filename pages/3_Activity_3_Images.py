@@ -110,19 +110,19 @@ def main () :
         st.write("Translation")
         translation(i)
     
-    if method == "Rotation":
+    elif method == "Rotation":
         st.write("Rotation")
         rotation(i)
         
-    if method == "Scale":
+    elif method == "Scale":
         st.write("Scale")
         scaling(i)
     
-    if method == "Shear":
+    elif method == "Shear":
         st.write("Shear")
         shear(i)
     
-    if method == "Reflection":
+    elif method == "Reflection":
         st.write("Reflection")
         reflection(i)
     
