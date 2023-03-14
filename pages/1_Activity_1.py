@@ -113,6 +113,22 @@ def DDALine(x1, y1, x2, y2, color):
     plt.plot(x3,y3,marker="x", markersize=5, markerfacecolor="r")
     plt.show()
     st.pyplot(fig)
+    
+def Midpoint(x1,x2,y1,y2):
+    fig = plt.figure()
+
+    x = [x1, x2]
+    y = [y1, y2]
+    
+    x3 = (x1+x2) / 2 #Midpoint of X
+    y3 = (y1 + y2) / 2 # Midpoint of Y
+    st.write("Midpoint Line:", x3,"&", y3)
+    
+    plt.plot(x,y)
+    plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
+    plt.show()
+    st.pyplot(fig)
+
 
 def main():
     
@@ -136,6 +152,8 @@ def main():
     st.write('DDA Line')
     DDALine(x, y, x2, y2, color)
     
+    st.write('Midpoint Line')
+    Midpoint(x,x,y1,y2)
 
 if __name__ == '__main__':
     main()
