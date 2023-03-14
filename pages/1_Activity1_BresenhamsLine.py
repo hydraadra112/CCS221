@@ -89,7 +89,7 @@ def BresenhamLineMidpoint(x1, y1, x2, y2, color):
     
     st.write("Midpoint: ", float(x3), "&", float(y3))
     
-def DDALine (x1, y1, x2, y2, color):
+def DDALine(x1, y1, x2, y2, color):
     fig = plt.figure()
     dx = abs(x1 - x2)
     dy = abs(y1 - y2)
@@ -133,7 +133,7 @@ def main():
     BresenhamLineMidpoint(x, y, x2, y2, color)
 
     st.write('DDA Line')
-    BresenhamLineMidpoint(x, y, x2, y2, color)
+    DDALine(x, y, x2, y2, color)
     
 
 if __name__ == '__main__':
