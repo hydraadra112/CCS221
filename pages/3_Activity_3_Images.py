@@ -48,6 +48,7 @@ def rotation(i, angle):
 def scaling(i,x,y):
     
     # Scaling
+    x, y = np.float32
     m_scaling_ = np.float32([[y, 0, 0],
                              [0, x, 0],
                              [0, 0, 1]])
