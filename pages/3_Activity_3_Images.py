@@ -26,10 +26,10 @@ def translation(i,x,y):
     plt.show()
     st.pyplot(fig)
 
-def rotation(i):
+def rotation(i, angle):
     
     # Rotation
-    angle = np.radians(10)
+    angle = np.radians(angle)
     m_rotation_ = np.float32([[np.cos(angle), -(np.sin(angle)), 0],
                               [np.sin(angle), np.cos(angle), 0],
                               [0, 0, 1]])
@@ -108,14 +108,15 @@ def main () :
   
     
     if 'Translation' in method:
-        x = st.slider('X Translation: ', 0, 500, 1)
-        y = st.slider('Y Translation: ', 0, 500, 1)
+        x = st.slider('X Translation', 0, 500, 1)
+        y = st.slider('Y Translation', 0, 500, 1)
         st.write("Translation")
         translation(i,x,y)
     
     if 'Rotation' in method:
+        angle = st.slider('Rotation Size', 0, 500, 1)
         st.write("Rotation")
-        rotation(i)
+        rotation(i, angle)
         
     if 'Scale' in method:
         st.write("Scale")
