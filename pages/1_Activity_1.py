@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.title("Activity1\nGroup6\nBresenhamsLine")
+st.title("Activity_1\nGroup_6")
 
 def BresenhamLine(x1, y1, x2, y2, color):
     
@@ -87,8 +87,6 @@ def BresenhamLineMidpoint(x1, y1, x2, y2, color):
     plt.show()
     st.pyplot(fig)
     
-    st.write("Midpoint: ", float(x3), "&", float(y3))
-    
 def DDALine(x1, y1, x2, y2, color):
     fig = plt.figure()
     dx = abs(x1 - x2)
@@ -96,7 +94,6 @@ def DDALine(x1, y1, x2, y2, color):
     
     x3 = (x1+x2) / 2 #Midpoint of X
     y3 = (y1 + y2) / 2 # Midpoint of Y
-    st.write("Midpoint Line:", x3,"&", y3)
     
     if abs(dx) > abs(dy):
         steps = abs(dx)
@@ -124,6 +121,10 @@ def main():
 
     x2 = st.slider('X2: ', 0, 100, 1)
     y2 = st.slider('Y2: ', 0, 100, 1)
+    
+    x3 = (x + x2) / 2 #Midpoint of X
+    y3 = (y + y2) / 2 # Midpoint of Y
+    st.write("Midpoint: ", float(x3), "&", float(y3))
     
     color = "b." 
     st.write('Bresenhams Line')
