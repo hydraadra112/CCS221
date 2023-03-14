@@ -91,7 +91,7 @@ def reflection(i):
     cols, rows = img_.shape[:2]
     
     m_reflection_ = np.float32([[1, 0, 0],
-                                [0, -1, rows],
+                                [0, -1, cols],
                                 [0, 0, 1]])
     
   
@@ -105,7 +105,7 @@ def reflection(i):
 def main () :
     i = st.slider('Choose Image (1-3)', 1, 3, 1)
     
-    method = st.multiselect('Choose Manipulation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'], ['Translation'])
+    method = st.multiselect('Choose Manipulation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
   
     
     if 'Translation' in method:
