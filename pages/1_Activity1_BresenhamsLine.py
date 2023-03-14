@@ -10,8 +10,6 @@ def BresenhamLine(x1, y1, x2, y2, color):
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
     gradient = dy/float(dx)
-    x3 = (x2 + x1) / 2
-    y3 = (y2 + y1) / 2
    
 
     if gradient > 1:
@@ -51,9 +49,7 @@ def BresenhamLineMidpoint(x1, y1, x2, y2, color):
     x, y = x1, y1
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
-    
     gradient = dy/float(dx)
-    
     x3 = (x2 + x1) / 2
     y3 = (y2 + y1) / 2
    
@@ -87,7 +83,7 @@ def BresenhamLineMidpoint(x1, y1, x2, y2, color):
         ycoordinates.append(y)
         
     plt.plot(x3,y3, marker="x", markersize=6, markerfacecolor="r")
-    plt.plot(xcoordinates, ycoordinates, color)
+    plt.plot(xcoordinates, ycoordinates)
     plt.show()
     st.pyplot(fig)
     
