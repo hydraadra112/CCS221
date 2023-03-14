@@ -46,7 +46,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
     plt.show()
     st.pyplot(fig)
     
- def BresenhamLineMidpoint(x1, y1, x2, y2, color):
+def BresenhamLineMidpoint(x1, y1, x2, y2, color):
     
     x, y = x1, y1
     dx = abs(x2 - x1)
