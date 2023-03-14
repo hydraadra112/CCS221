@@ -128,7 +128,7 @@ def main () :
     
     if 'Shear' in method:
         shearsize = st.slider('Shear Size', 0.0, 5.0, 0.1)
-        shearsize2 = st.slider('Shear Size', 0.0, 5.0, 0.1)
+        shearsize2 = st.slider('Shear Size 2', 0.0, 5.0, 0.1)
         st.write("Shear")
         shear(i, shearsize,shearsize2)
     
