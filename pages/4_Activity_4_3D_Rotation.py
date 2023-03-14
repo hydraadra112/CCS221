@@ -123,7 +123,7 @@ def main():
     
     shapeChoice = st.selectbox('Choose 3D Shape', ('Pyramid', '90 Degree Angled Shape', 'Diamond', 'Prism'))
     
-    if shapeCoice == "Pyramid":
+    if shapeChoice == "Pyramid":
         init_shape_ = _pyramid_(bottom_lower)
         with tf.compat.v1.Session() as session:
             rotated_object = session.run(rotate_obj(init_shape_, angle))
