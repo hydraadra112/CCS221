@@ -64,12 +64,12 @@ def scaling(i,xs,ys):
     plt.show()
     st.pyplot(fig)
     
-def shear(i,shearsize):
+def shear(i,shearsize,shearsize2):
     
     # Shearing
     m_shearing_x = np.float32([[1, shearsize, 0],
                                [0, 1, 0],
-                               [0, 0, 1]])
+                               [0, shearsize2, 1]])
     
     
     img_ = cv2.imread(address + str(i) + jpg)
@@ -128,8 +128,9 @@ def main () :
     
     if 'Shear' in method:
         shearsize = st.slider('Shear Size', 0.0, 5.0, 0.1)
+        shearsize2 = st.slider('Shear Size', 0.0, 5.0, 0.1)
         st.write("Shear")
-        shear(i, shearsize)
+        shear(i, shearsize,shearsize2)
     
     if 'Reflection' in method:
         st.write("Reflection")
