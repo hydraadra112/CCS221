@@ -91,7 +91,7 @@ def reflection(i):
     cols, rows = img_.shape[:2]
     
     m_reflection_ = np.float32([[1, 0, 0],
-                                [0, -1, cols],
+                                [0, -1, rows],
                                 [0, 0, 1]])
     
   
