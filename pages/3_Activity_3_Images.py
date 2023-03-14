@@ -6,7 +6,7 @@ st.title("Activity3\nGroup6\nImages")
 # Reading of Image
 jpg = str(".jpg")
 fig = plt.figure()
-address = str("pages/")
+address = str("C:/Users/admin/Desktop/PROG/python_acts/python_exercises/")
 
 def translation(i,x,y):
     
@@ -91,12 +91,28 @@ def reflection(i):
     cols, rows = img_.shape[:2]
     
     st.write(rows)
-    m_reflection_ = np.float32([[1, 0, 0],
-                                [0, -1, rows],
-                                [0, 0, 1]])
     
-  
+    choice = st.selectbox('Image Position', ('Original', 'Flip Y', 'Flip X'))
+    
+    if choice == "Original":
+        m_reflection_ = np.float32([[1, 0, 0],
+                                    [0, 1, 0],
+                                    [0, 0, 1]])
+        
+        
+    elif choice == "Flip Y":
+        m_reflection_ = np.float32([[1, 0, 0],
+                                    [0, -1, rows],
+                                    [0, 0, 1]])
 
+        
+    elif choice == "Flip X":
+        m_reflection_ = np.float32([[-1, 0, cols],
+                                    [0, 1, 0],
+                                    [0, 0, 1]])
+        
+        
+        
     reflected_img_ = cv2.warpPerspective(img_, m_reflection_,(int(cols), int(rows)))
     plt.axis('off')
     plt.imshow(reflected_img_)
