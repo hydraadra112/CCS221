@@ -153,7 +153,7 @@ def main():
     DDALine(x, y, x2, y2, color)
     
     st.write('Midpoint Line')
-    Midpoint(x,x,y1,y2)
+    Midpoint(x,x2,y,y2)
 
 if __name__ == '__main__':
     main()
