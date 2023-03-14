@@ -108,8 +108,8 @@ def main () :
   
     
     if 'Translation' in method:
-        x = st.slider('X Translation: ', 0, 120, 1)
-        y = st.slider('Y Translation: ', 0, 120, 1)
+        x = st.slider('X Translation: ', 0, 500, 1)
+        y = st.slider('Y Translation: ', 0, 500, 1)
         st.write("Translation")
         translation(i,x,y)
     
