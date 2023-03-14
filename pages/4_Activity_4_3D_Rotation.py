@@ -121,29 +121,29 @@ def main():
     
     bottom_lower=(x, y, z)
     
-    init_shape_ = _pyramid_(bottom_lower)
-    with tf.compat.v1.Session() as session:
-        rotated_object = session.run(rotate_obj(init_shape_, angle))
-    _plt_basic_object_(rotated_object)
+    shapeChoice = st.selectbox('Choose 3D Shape', ('Pyramid', '90 Degree Angled Shape', 'Diamond', 'Prism'))
+    
+    if shapeCoice == "Pyramid":
+        init_shape_ = _pyramid_(bottom_lower)
+        with tf.compat.v1.Session() as session:
+            rotated_object = session.run(rotate_obj(init_shape_, angle))
+    
+    elif shapeChoice == "90 Degree Angled Shape":
+        init_shape_ = _90deg_(bottom_lower)
+        with tf.compat.v1.Session() as session:
+            rotated_object = session.run(rotate_obj(init_shape_, angle))
+  
+    elif shapeChoice == "Diamond":
+        init_shape_ = _diamond_(bottom_lower)
+        with tf.compat.v1.Session() as session:
+            rotated_object = session.run(rotate_obj(init_shape_, angle))
 
-    init_shape_ = _90deg_(bottom_lower)
-    with tf.compat.v1.Session() as session:
-        rotated_object = session.run(rotate_obj(init_shape_, angle))
-    _plt_basic_object_(rotated_object)
-
-    init_shape_ = _diamond_(bottom_lower)
-    with tf.compat.v1.Session() as session:
-        rotated_object = session.run(rotate_obj(init_shape_, angle))
-    _plt_basic_object_(rotated_object)
-
-    init_shape_ = _prism_(bottom_lower)
-    with tf.compat.v1.Session() as session:
-        rotated_object = session.run(rotate_obj(init_shape_, angle))
-    _plt_basic_object_(rotated_object)
+    elif shapeChoice == "Prism":
+        init_shape_ = _prism_(bottom_lower)
+        with tf.compat.v1.Session() as session:
+            rotated_object = session.run(rotate_obj(init_shape_, angle))
         
-    
-    
-    
+    plt_basic_object_(rotated_object)
     
 if __name__ == '__main__':
     main()
