@@ -143,7 +143,7 @@ def main():
         with tf.compat.v1.Session() as session:
             rotated_object = session.run(rotate_obj(init_shape_, angle))
         
-    plt_basic_object_(rotated_object)
+    _plt_basic_object_(rotated_object)
     
 if __name__ == '__main__':
     main()
