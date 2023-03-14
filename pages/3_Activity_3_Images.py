@@ -49,8 +49,8 @@ def scaling(i,xs,ys):
     
     # Scaling
     
-    m_scaling_ = np.float32([[ys, 0, 0],
-                             [0, xs, 0],
+    m_scaling_ = np.float32([[xs, 0, 0],
+                             [0, ys, 0],
                              [0, 0, 1]])
     
    
