@@ -45,11 +45,11 @@ def rotation(i, angle):
     plt.show()
     st.pyplot(fig)
     
-def scaling(i):
+def scaling(i,x,y):
     
     # Scaling
-    m_scaling_ = np.float32([[1.5, 0, 0],
-                             [0, 1.8, 0],
+    m_scaling_ = np.float32([[y, 0, 0],
+                             [0, x, 0],
                              [0, 0, 1]])
     
    
@@ -119,8 +119,10 @@ def main () :
         rotation(i, angle)
         
     if 'Scale' in method:
+        x = st.slider('X Translation', 0, 5, 0.1)
+        y = st.slider('Y Translation', 0, 5, 0.1)
         st.write("Scale")
-        scaling(i)
+        scaling(i,x,y)
     
     if 'Shear' in method:
         st.write("Shear")
