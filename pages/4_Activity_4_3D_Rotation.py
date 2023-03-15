@@ -136,7 +136,7 @@ def main():
     
     if shapeChoice == "Pyramid":
         init_shape_ = _pyramid_(bottom_lower)
-        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear'))
         
         if trans == "Rotation":
             angle = st.slider('Rotation Size : ', 0, 1500, 1)
@@ -155,7 +155,7 @@ def main():
     elif shapeChoice == "90 Degree Angled Shape":
         init_shape_ = _90deg_(bottom_lower)
         
-        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear'))
         
         if trans == "Rotation":
             angle = st.slider('Rotation Size : ', 0, 1500, 1)
@@ -172,7 +172,7 @@ def main():
   
     elif shapeChoice == "Diamond":
         init_shape_ = _diamond_(bottom_lower)
-        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear')
         
         if trans == "Rotation":
             angle = st.slider('Rotation Size : ', 0, 1500, 1)
@@ -190,7 +190,7 @@ def main():
     elif shapeChoice == "Prism":
         init_shape_ = _prism_(bottom_lower)
         
-        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear'))
         
         if trans == "Rotation":
             angle = st.slider('Rotation Size : ', 0, 1500, 1)
