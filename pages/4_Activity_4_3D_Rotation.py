@@ -30,9 +30,7 @@ def _plt_basic_object_(points):
     
     plt.show()
     st.pyplot(fig)
-    
-    
-    
+
 def _90deg_(bottom_lower):
     
     bottom_lower = np.array(bottom_lower)
@@ -111,9 +109,22 @@ def rotate_obj(points, angle):
 
     return tf.matmul(tf.cast(points, tf.float32), tf.cast(rotation_matrix, tf.float32))
 
+def shear_obj(points, yold, ynew, zold, znew):
+    
+    sh_y = tf.multiply(yold, ynew)
+    sh_z = tf.multiply(zold, znew)
+   
+    shear_points = tf.stack([[sh_y, 0, 0],
+                            [sh_z, 1, 0],
+                            [0, 0, 1]
+                            ])
+   
+   
+    shear_object = tf.matmul(tf.cast(points, tf.float32), tf.cast(shear_points, tf.float32))
+    return shear_object
+
 def main():
     
-    angle = st.slider('Rotation Size : ', 0, 1500, 1)
     st.write('Translation Values')
     x = st.slider('X: ', 0, 10, 1)
     y = st.slider('Y: ', 0, 10, 1)
@@ -125,25 +136,76 @@ def main():
     
     if shapeChoice == "Pyramid":
         init_shape_ = _pyramid_(bottom_lower)
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        
+        if trans == "Rotation":
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if trans == "Shear":
+            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+            with tf.compat.v1.Session() as session:
+                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
+            
     
     elif shapeChoice == "90 Degree Angled Shape":
         init_shape_ = _90deg_(bottom_lower)
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
+        
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        
+        if trans == "Rotation":
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if trans == "Shear":
+            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+            with tf.compat.v1.Session() as session:
+                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
   
     elif shapeChoice == "Diamond":
         init_shape_ = _diamond_(bottom_lower)
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        
+        if trans == "Rotation":
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if trans == "Shear":
+            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+            with tf.compat.v1.Session() as session:
+                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
 
     elif shapeChoice == "Prism":
         init_shape_ = _prism_(bottom_lower)
-        with tf.compat.v1.Session() as session:
-            rotated_object = session.run(rotate_obj(init_shape_, angle))
         
-    _plt_basic_object_(rotated_object)
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear', 'Reflection'))
+        
+        if trans == "Rotation":
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if trans == "Shear":
+            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+            with tf.compat.v1.Session() as session:
+                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
+        
+    _plt_basic_object_(object)
     
 if __name__ == '__main__':
     main()
