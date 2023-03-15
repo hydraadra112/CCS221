@@ -4,6 +4,7 @@ import cv2
 import matplotlib.pyplot as plt
 import os
 
+
 st.title("Activity3\nGroup6\nImages")
 # Reading of Image
 jpg = str(".jpg")
