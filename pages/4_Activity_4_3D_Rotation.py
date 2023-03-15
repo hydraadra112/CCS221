@@ -172,7 +172,7 @@ def main():
   
     elif shapeChoice == "Diamond":
         init_shape_ = _diamond_(bottom_lower)
-        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear')
+        trans = st.selectbox('Choose Transformation', ('Rotation', 'Shear'))
         
         if trans == "Rotation":
             angle = st.slider('Rotation Size : ', 0, 1500, 1)
