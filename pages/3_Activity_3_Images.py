@@ -2,21 +2,24 @@ import streamlit as st
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
+import os
+
 st.title("Activity3\nGroup6\nImages")
 # Reading of Image
 jpg = str(".jpg")
 fig = plt.figure()
 address = str("C:/Users/admin/Desktop/PROG/python_acts/python_exercises/")
 
-def translation(i,x,y):
+def translation(i,x,y,img_):
     
     #Translation
     m_translation_ = np.float32([[1, 0, x],
                                  [0, 1, y],
                                  [0, 0, 1]])
     
- 
-    img_ = cv2.imread(address + str(i) + jpg)
+    file = os.path.abspath(img_)
+    st.write(file)
+    img_ = cv2.imread(str(file))
     img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
     cols, rows = (img_.shape[:2])
 
@@ -122,14 +125,17 @@ def reflection(i):
 def main () :
     i = st.slider('Choose Image (1-3)', 1, 3, 1)
     
-    method = st.multiselect('Choose Manipulation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
-  
+    method = st.multiselect('Choose Transformation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
+    uploaded = st.file_uploader('Upload Image to Use', ['png', 'jpg', 'webp'], accept_multiple_files=False)
+    
+    if uploaded:
+        uploaded = uploaded.name
     
     if 'Translation' in method:
         x = st.slider('X Translation', 0, 500, 1)
         y = st.slider('Y Translation', 0, 500, 1)
         st.write("Translation")
-        translation(i,x,y)
+        translation(i,x,y,uploaded)
     
     if 'Rotation' in method:
         angle = st.slider('Rotation Size', 0, 500, 1)
@@ -137,13 +143,13 @@ def main () :
         rotation(i, angle)
         
     if 'Scale' in method:
-        xs = float(st.slider('X Translation', 0.0, 5.0, 0.1))
-        ys = float(st.slider('Y Translation', 0.0, 5.0, 0.1))
+        xs = float(st.slider('X Translation', 0.0, 5.0, 0.000001))
+        ys = float(st.slider('Y Translation', 0.0, 5.0, 0.000001))
         st.write("Scale")
         scaling(i,xs,ys)
     
     if 'Shear' in method:
-        shearsize = st.slider('Shear Size', 0.0, 5.0, 0.1)
+        shearsize = st.slider('Shear Size', 0.0, 5.0, 0.000001)
         st.write("Shear")
         shear(i, shearsize)
     
