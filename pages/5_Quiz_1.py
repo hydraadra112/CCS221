@@ -13,8 +13,6 @@ def firstTranslate(bx, by, img, rows, cols):
                                  [0, 0, 1]]) 
 
     img_ = cv2.warpPerspective(img, m_translation_, (rows, cols))
-
-    st.write(m_translation_)
     return img_
 
 def translation(img, bx, by, tx, ty, rows, cols):
@@ -27,8 +25,6 @@ def translation(img, bx, by, tx, ty, rows, cols):
                                  [0, 0, 1]]) 
 
     translated_img_ = cv2.warpPerspective(img, m_translation_, (rows, cols))
-
-    st.write(m_translation_)
     return translated_img_
 
 def main():
@@ -41,8 +37,6 @@ def main():
         
     img = cv2.imread(address + str(i) + ".jpg")
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-    st.write('First and Second Positions by Images:')
     
     bx = st.slider('First Position Bx: ', 1, 500, 1)
     by = st.slider('First Position By: ', 1, 500, 1)
