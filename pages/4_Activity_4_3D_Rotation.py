@@ -109,7 +109,7 @@ def rotate_obj(points, angle):
 
     return tf.matmul(tf.cast(points, tf.float32), tf.cast(rotation_matrix, tf.float32))
 
-def shear_obj(points, yold, ynew, zold, znew):
+def shear_obj_y(points, yold, ynew, zold, znew):
     
     sh_y = tf.multiply(yold, ynew)
     sh_z = tf.multiply(zold, znew)
@@ -117,6 +117,20 @@ def shear_obj(points, yold, ynew, zold, znew):
     shear_points = tf.stack([[sh_y, 0, 0],
                             [sh_z, 1, 0],
                             [0, 0, 1]
+                            ])
+   
+   
+    shear_object = tf.matmul(tf.cast(points, tf.float32), tf.cast(shear_points, tf.float32))
+    return shear_object
+
+def shear_obj_x(points, xold, xnew, zold, znew):
+    
+    sh_x = tf.multiply(xold, xnew)
+    sh_z = tf.multiply(zold, znew)
+   
+    shear_points = tf.stack([[1, sh_x, 0],
+                            [0, 1, 0],
+                            [0, sh_z, 1]
                             ])
    
    
@@ -144,12 +158,23 @@ def main():
                 object = session.run(rotate_obj(init_shape_, angle))
             
         if trans == "Shear":
-            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
-            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
-            with tf.compat.v1.Session() as session:
-                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
+            trans2 = st.selectbox('Choose Shear', ('Shear X', 'Shear Y'))
+            
+            if trans2 == 'Shear Y':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif trans2 == 'Shear X':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
             
     
     elif shapeChoice == "90 Degree Angled Shape":
@@ -163,12 +188,23 @@ def main():
                 object = session.run(rotate_obj(init_shape_, angle))
             
         if trans == "Shear":
-            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
-            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
-            with tf.compat.v1.Session() as session:
-                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
+            trans2 = st.selectbox('Choose Shear', ('Shear X', 'Shear Y'))
+            
+            if trans2 == 'Shear Y':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif trans2 == 'Shear X':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
   
     elif shapeChoice == "Diamond":
         init_shape_ = _diamond_(bottom_lower)
@@ -180,12 +216,23 @@ def main():
                 object = session.run(rotate_obj(init_shape_, angle))
             
         if trans == "Shear":
-            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
-            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
-            with tf.compat.v1.Session() as session:
-                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
+            trans2 = st.selectbox('Choose Shear', ('Shear X', 'Shear Y'))
+            
+            if trans2 == 'Shear Y':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif trans2 == 'Shear X':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
 
     elif shapeChoice == "Prism":
         init_shape_ = _prism_(bottom_lower)
@@ -198,12 +245,23 @@ def main():
                 object = session.run(rotate_obj(init_shape_, angle))
             
         if trans == "Shear":
-            zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-            znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-            yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
-            ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
-            with tf.compat.v1.Session() as session:
-                object = session.run(shear_obj(init_shape_, yold, ynew, zold, znew))
+            trans2 = st.selectbox('Choose Shear', ('Shear X', 'Shear Y'))
+            
+            if trans2 == 'Shear Y':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif trans2 == 'Shear X':
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
         
     _plt_basic_object_(object)
     
