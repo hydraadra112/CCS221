@@ -122,7 +122,7 @@ def reflection(img_):
 def main():
     
     method = st.multiselect('Choose Transformation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
-    uploaded = st.file_uploader('Upload Image to Use', ['png', 'jpg', 'webp'], accept_multiple_files=False)
+    uploaded = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
     
     if 'Translation' in method:
         x = st.slider('X Translation', -100, 500, 1)
