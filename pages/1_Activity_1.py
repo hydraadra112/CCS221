@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.title("Activity_1\nGroup_6")
+st.title("Activity 1")
 
 def BresenhamLine(x1, y1, x2, y2, color):
     
@@ -122,7 +122,6 @@ def Midpoint(x1,x2,y1,y2):
     
     x3 = (x1+x2) / 2 #Midpoint of X
     y3 = (y1 + y2) / 2 # Midpoint of Y
-    st.write("Midpoint Line:", x3,"&", y3)
     
     plt.plot(x,y)
     plt.plot(x3,y3,marker="o", markersize=5, markerfacecolor="red")
@@ -132,15 +131,17 @@ def Midpoint(x1,x2,y1,y2):
 
 def main():
     
-    x = st.slider('X1: ', 0, 100, 1)
-    y = st.slider('Y1: ', 0, 100, 1)
+    st.sidebar.title('ACT 1 Controls')
+    x = st.sidebar.slider('X1: ', 0, 100, 1)
+    y = st.sidebar.slider('Y1: ', 0, 100, 1)
 
-    x2 = st.slider('X2: ', 0, 100, 1)
-    y2 = st.slider('Y2: ', 0, 100, 1)
+    x2 = st.sidebar.slider('X2: ', 0, 100, 1)
+    y2 = st.sidebar.slider('Y2: ', 0, 100, 1)
     
     x3 = (x + x2) / 2 #Midpoint of X
     y3 = (y + y2) / 2 # Midpoint of Y
-    st.write("Midpoint: ", float(x3), "&", float(y3))
+    
+    st.sidebar.write("Midpoint: ", float(x3), "&", float(y3))
     
     color = "b." 
     st.write('Bresenhams Line')
