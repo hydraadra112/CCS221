@@ -90,7 +90,8 @@ def reflection(img_):
     img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
     
-    choice = st.selectbox('Image Position', ('Original', 'Flip Y', 'Flip X'))
+    st.sidebar.write('Reflection Choices')    
+    choice = st.sidebar.selectbox('Image Position', ('Original', 'Flip Y', 'Flip X'))
     
     if choice == "Original":
         m_reflection_ = np.float32([[1, 0, 0],
@@ -120,27 +121,31 @@ def reflection(img_):
 def main():
     
     method = st.sidebar.multiselect('Choose Transformation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
-    uploaded = st.sidebar.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
+    uploaded = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
     st.sidebar.title('ACT 3 - Controls')
     
     if 'Translation' in method:
+        st.sidebar.write('Translation Controls')
         x = st.sidebar.slider('X Translation', -100, 500, 1)
         y = st.sidebar.slider('Y Translation', -100, 500, 1)
         st.write("Translation")
         translation(x,y,uploaded)
     
     if 'Rotation' in method:
+        st.sidebar.write('Rotation Controls')
         angle = st.sidebar.slider('Rotation Size', -100, 500, 1)
         st.write("Rotation")
         rotation(angle,uploaded)
         
     if 'Scale' in method:
+        st.sidebar.write('Scale Controls')
         xs = float(st.sidebar.slider('X Translation', 0.0, 5.0, 0.000001))
         ys = float(st.sidebar.slider('Y Translation', 0.0, 5.0, 0.000001))
         st.write("Scale")
         scaling(uploaded,xs,ys)
     
     if 'Shear' in method:
+        st.sidebar.write('Shear Controls')
         shearsize = st.sidebar.slider('Shear Size', 0.0, 5.0, 0.000001)
         st.write("Shear")
         shear(uploaded, shearsize)
