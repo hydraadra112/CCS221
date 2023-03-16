@@ -37,17 +37,17 @@ def main():
     img_ = np.asarray(img_)
     img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
     
-    bx = st.slider('First Position Bx: ', 1, 500, 1)
-    by = st.slider('First Position By: ', 1, 500, 1)
+    st.sidebar.title('QUIZ 1 - Controls')
+    bx = st.sidebar.slider('1ST Bx: ', 1, 500, 1)
+    by = st.sidebar.slider('1ST By: ', 1, 500, 1)
 
-    tx = st.slider('Second Position Bx: ', 1, 500, 1)
-    ty = st.slider('Second Position By: ', 1, 500, 1)
+    tx = st.sidebar.slider('2ND Bx: ', 1, 500, 1)
+    ty = st.sidebar.slider('2ND By: ', 1, 500, 1)
 
     rows, cols = (img_.shape[:2])
     
     st.write('First Position')
     first_translation_ = firstTranslate(bx, by, img_, rows, cols)
-    
     plt.axis('off')
     plt.imshow(first_translation_)
     plt.show()
