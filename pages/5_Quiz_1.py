@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2 
 import streamlit as st
+from PIL import Image
 
 st.title('Quiz1\nGroup6')
 
@@ -30,13 +31,11 @@ def translation(img, bx, by, tx, ty, rows, cols):
 def main():
     
     fig = plt.figure()
+    img_ = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
     
-    
-    address = str("pages/")
-    i = st.slider('Choose Picture', 1, 3, 1)
-        
-    img = cv2.imread(address + str(i) + ".jpg")
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img_ = Image.open(img_)
+    img_ = np.asarray(img_)
+    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
     
     bx = st.slider('First Position Bx: ', 1, 500, 1)
     by = st.slider('First Position By: ', 1, 500, 1)
@@ -44,10 +43,11 @@ def main():
     tx = st.slider('Second Position Bx: ', 1, 500, 1)
     ty = st.slider('Second Position By: ', 1, 500, 1)
 
-    rows, cols = (img.shape[:2])
+    rows, cols = (img_.shape[:2])
     
     st.write('First Position')
-    first_translation_ = firstTranslate(bx,by,img, rows, cols)
+    first_translation_ = firstTranslate(bx, by, img_, rows, cols)
+    
     plt.axis('off')
     plt.imshow(first_translation_)
     plt.show()
@@ -55,7 +55,7 @@ def main():
     
     
     st.write("Second Position")
-    translated_image = translation(img, bx, by, tx, ty, rows, cols)
+    translated_image = translation(img_, bx, by, tx, ty, rows, cols)
     plt.axis('off')
     plt.imshow(translated_image)
     plt.show()
