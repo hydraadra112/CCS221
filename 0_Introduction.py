@@ -6,6 +6,4 @@ st.set_page_config(
 )
 
 st.title("Group 6 - Neunzehn (BSCS 1-A)")
-st.write("Carado, John Manuel")
-st.write("Molet, Jonessa Marie")
-st.write("Pendon, Jeffrille Amber")
+st.write("by Carado, Molet, & Pendon")
