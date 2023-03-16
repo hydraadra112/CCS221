@@ -31,7 +31,7 @@ def translation(img, bx, by, tx, ty, rows, cols):
 def main():
     
     fig = plt.figure()
-    img_ = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
+    img_ = st.file_uploader('Upload Image to Use in Order for the Program to Work', ['jpg'], accept_multiple_files=False)
     
     img_ = Image.open(img_)
     img_ = np.asarray(img_)
