@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.title("Activity2\nGroup6\nFloodFill")
+st.title("Activity2\nFlood Fill")
 fig = plt.figure()
 
 two_d_arr = np.array([[0, 0, 0, 0, 0],
@@ -16,8 +16,8 @@ plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
 
-color = st.slider('Enter Color Number to Fill (0-16):', 0, 16, 1)
-st.write('Color Changed')
+st.sidebar.title('ACT 2 - Controls')
+color = st.sidebar.slider('Enter Color Number to Fill (0-16):', 0, 16, 1)
 
 for row in range(len(two_d_arr)):
     for col in range(len(two_d_arr)):
@@ -33,7 +33,6 @@ for row in range(len(two_d_arr)):
         two_d_arr[row][col] = color
       
 
-st.write('Finished Product')
 plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
