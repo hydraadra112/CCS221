@@ -10,8 +10,6 @@ two_d_arr = np.array([[0, 0, 0, 0, 0, 0],
                       [0, 0, 0, 0, 0, 0]])
 
 fig = plt.figure()
-
-st.write('Before Boundary Fill')
 plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
@@ -41,7 +39,6 @@ for row in range(len(two_d_arr[row])):
     st.pyplot(fig)
                 
     
-st.sidebar.write(two_d_arr)
 plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
