@@ -4,7 +4,7 @@ import cv2
 import streamlit as st
 from PIL import Image
 
-st.title('Quiz1\nGroup6')
+st.title('Quiz 1')
 
 
 def firstTranslate(bx, by, img, rows, cols):
