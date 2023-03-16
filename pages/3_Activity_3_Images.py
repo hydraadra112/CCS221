@@ -2,8 +2,7 @@ import streamlit as st
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-import os
-
+from PIL import Image
 
 st.title("Activity3\nGroup6\nImages")
 # Reading of Image
@@ -11,26 +10,25 @@ jpg = str(".jpg")
 fig = plt.figure()
 address = str("C:/Users/admin/Desktop/PROG/python_acts/python_exercises/")
 
-def translation(i,x,y,img_):
+def translation(x,y,img_):
     
     #Translation
     m_translation_ = np.float32([[1, 0, x],
                                  [0, 1, y],
                                  [0, 0, 1]])
     
-    file = os.path.abspath(img_)
-    st.write(file)
-    img_ = cv2.imread(str(file))
-    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
-    cols, rows = (img_.shape[:2])
-
-    translated_img_ = cv2.warpPerspective(img_, m_translation_, (cols, rows))
+    
+    img_ = Image.open(img_)
+    img_ = np.asarray(img_)
+    cols, rows = img_.shape[:2] 
+    translated_image = cv2.warpPerspective(img_, m_translation_, (int(cols), int(rows)))
+    
     plt.axis('off')
-    plt.imshow(translated_img_)
+    plt.imshow(translated_image)
     plt.show()
     st.pyplot(fig)
 
-def rotation(i, angle):
+def rotation(angle, img_):
     
     # Rotation
     angle = np.radians(angle)
@@ -39,8 +37,8 @@ def rotation(i, angle):
                               [0, 0, 1]])
     
    
-    img_ = cv2.imread(address + str(i) + jpg)
-    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2] 
 
     rotated_img_ = cv2.warpPerspective(img_, m_rotation_, (int(cols), int(rows)))
@@ -49,7 +47,7 @@ def rotation(i, angle):
     plt.show()
     st.pyplot(fig)
     
-def scaling(i,xs,ys):
+def scaling(img_,xs,ys):
     
     # Scaling
     
@@ -58,8 +56,8 @@ def scaling(i,xs,ys):
                              [0, 0, 1]])
     
    
-    img_ = cv2.imread(address + str(i) + jpg)
-    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2] 
 
     scaled_img_ = cv2.warpPerspective(img_, m_scaling_, (cols*2, rows*2))
@@ -68,7 +66,7 @@ def scaling(i,xs,ys):
     plt.show()
     st.pyplot(fig)
     
-def shear(i,shearsize):
+def shear(img_,shearsize):
     
     # Shearing
     m_shearing_x = np.float32([[1, shearsize, 0],
@@ -76,8 +74,8 @@ def shear(i,shearsize):
                                [0, 0, 1]])
     
     
-    img_ = cv2.imread(address + str(i) + jpg)
-    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
 
     sheared_img_x = cv2.warpPerspective(img_,m_shearing_x,(int(cols*1.5), int(rows*1.5)))
@@ -86,15 +84,13 @@ def shear(i,shearsize):
     plt.show()
     st.pyplot(fig)
 
-def reflection(i):
+def reflection(img_):
     
     # Reflection
     
-    img_ = cv2.imread(address + str(i) + jpg)
-    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
+    img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
-    
-    st.write(rows)
     
     choice = st.selectbox('Image Position', ('Original', 'Flip Y', 'Flip X'))
     
@@ -116,47 +112,43 @@ def reflection(i):
                                     [0, 0, 1]])
         
         
-        
     reflected_img_ = cv2.warpPerspective(img_, m_reflection_,(int(cols), int(rows)))
     plt.axis('off')
     plt.imshow(reflected_img_)
     plt.show()
     st.pyplot(fig)
 
-def main () :
-    i = st.slider('Choose Image (1-3)', 1, 3, 1)
+
+def main():
     
     method = st.multiselect('Choose Transformation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
     uploaded = st.file_uploader('Upload Image to Use', ['png', 'jpg', 'webp'], accept_multiple_files=False)
     
-    if uploaded:
-        uploaded = uploaded.name
-    
     if 'Translation' in method:
-        x = st.slider('X Translation', 0, 500, 1)
-        y = st.slider('Y Translation', 0, 500, 1)
+        x = st.slider('X Translation', -100, 500, 1)
+        y = st.slider('Y Translation', -100, 500, 1)
         st.write("Translation")
-        translation(i,x,y,uploaded)
+        translation(x,y,uploaded)
     
     if 'Rotation' in method:
-        angle = st.slider('Rotation Size', 0, 500, 1)
+        angle = st.slider('Rotation Size', -100, 500, 1)
         st.write("Rotation")
-        rotation(i, angle)
+        rotation(angle,uploaded)
         
     if 'Scale' in method:
         xs = float(st.slider('X Translation', 0.0, 5.0, 0.000001))
         ys = float(st.slider('Y Translation', 0.0, 5.0, 0.000001))
         st.write("Scale")
-        scaling(i,xs,ys)
+        scaling(uploaded,xs,ys)
     
     if 'Shear' in method:
         shearsize = st.slider('Shear Size', 0.0, 5.0, 0.000001)
         st.write("Shear")
-        shear(i, shearsize)
+        shear(uploaded, shearsize)
     
     if 'Reflection' in method:
         st.write("Reflection")
-        reflection(i)
+        reflection(uploaded)
     
     
 if __name__ == '__main__':
