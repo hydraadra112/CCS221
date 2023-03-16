@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-st.title("Activity2\nGroup6\nBoundaryFill")
+st.title("Activity 2\nBoundary Fill")
 two_d_arr = np.array([[0, 0, 0, 0, 0, 0], 
                       [0, 1, 1, 1, 1, 0], 
                       [0, 1, 1, 1, 1, 0],
@@ -16,9 +16,9 @@ plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
 
-st.write(two_d_arr)
+st.sidebar.title('ACT 2 - Controls')
 
-color = int(st.number_input("Enter Color Number to Replace (0-16): "))
+color = int(st.sidebar.slider("Enter Color Number to Replace (0-16): ", 0, 16, 1))
 
 row = 0
 col = 0
@@ -41,7 +41,7 @@ for row in range(len(two_d_arr[row])):
     st.pyplot(fig)
                 
     
-st.write(two_d_arr)
+st.sidebar.write(two_d_arr)
 plt.imshow(two_d_arr, interpolation='none', cmap='Set3')
 plt.show()
 st.pyplot(fig)
