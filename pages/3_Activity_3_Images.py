@@ -4,11 +4,9 @@ import cv2
 import matplotlib.pyplot as plt
 from PIL import Image
 
-st.title("Activity3\nGroup6\nImages")
+st.title("Activity 3")
 # Reading of Image
-jpg = str(".jpg")
 fig = plt.figure()
-address = str("C:/Users/admin/Desktop/PROG/python_acts/python_exercises/")
 
 def translation(x,y,img_):
     
@@ -121,28 +119,29 @@ def reflection(img_):
 
 def main():
     
-    method = st.multiselect('Choose Transformation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
-    uploaded = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
+    method = st.sidebar.multiselect('Choose Transformation Method', ['Translation', 'Rotation', 'Scale', 'Shear', 'Reflection'])
+    uploaded = st.sidebar.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
+    st.sidebar.title('ACT 3 - Controls')
     
     if 'Translation' in method:
-        x = st.slider('X Translation', -100, 500, 1)
-        y = st.slider('Y Translation', -100, 500, 1)
+        x = st.sidebar.slider('X Translation', -100, 500, 1)
+        y = st.sidebar.slider('Y Translation', -100, 500, 1)
         st.write("Translation")
         translation(x,y,uploaded)
     
     if 'Rotation' in method:
-        angle = st.slider('Rotation Size', -100, 500, 1)
+        angle = st.sidebar.slider('Rotation Size', -100, 500, 1)
         st.write("Rotation")
         rotation(angle,uploaded)
         
     if 'Scale' in method:
-        xs = float(st.slider('X Translation', 0.0, 5.0, 0.000001))
-        ys = float(st.slider('Y Translation', 0.0, 5.0, 0.000001))
+        xs = float(st.sidebar.slider('X Translation', 0.0, 5.0, 0.000001))
+        ys = float(st.sidebar.slider('Y Translation', 0.0, 5.0, 0.000001))
         st.write("Scale")
         scaling(uploaded,xs,ys)
     
     if 'Shear' in method:
-        shearsize = st.slider('Shear Size', 0.0, 5.0, 0.000001)
+        shearsize = st.sidebar.slider('Shear Size', 0.0, 5.0, 0.000001)
         st.write("Shear")
         shear(uploaded, shearsize)
     
