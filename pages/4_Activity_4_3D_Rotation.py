@@ -29,7 +29,7 @@ def _plt_basic_object_(points):
     
     el = st.slider('Elevation: ', 0, 360, 1)
     az = st.slider('Azimuth: ', 0, 360, 1)
-    st.write('Recommended Position: AZI: 40, ELEV: 40')
+    st.write('Recommended Position: AZI: 45, ELEV: 20')
     ax.view_init(elev=el, azim=az)
     
     
