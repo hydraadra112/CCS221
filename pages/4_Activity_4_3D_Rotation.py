@@ -27,8 +27,8 @@ def _plt_basic_object_(points):
     ax.set_ylabel ("Y Axis")
     ax.set_zlabel ("Z Axis")
     
-    el = st.slider('Elevation: ', -360, 360, 1)
-    az = st.slider('Azimuth: ', -360, 360, 1)
+    az = st.slider('Azimuth: ', -180, 360, 1)
+    el = st.slider('Elevation: ', -180, 360, 1)
     st.write('Recommended Position: AZI: 45, ELEV: 20')
     ax.view_init(elev=el, azim=az)
     
